@@ -1,0 +1,48 @@
+{{ partial "header" . }}
+
+<main>
+
+    {{  $background := .Params.feat | printf "background-image: url(/img/%s);" }}
+    <div class="blog__header" style="{{ $background | safeCSS }}">
+        <div class="blog__blur">
+
+            <h2>Products</h2>
+            <p><a href="/">Home</a> /<!--{{ .Title }}--> Products</p>
+
+        </div>
+    </div>
+
+    <!-- <h2 class="default-title">{{ .Title }}</h2> -->
+    <div class="blog">
+        <!-- post -->
+        <div class="blog__content">
+        <div class="row">
+        <div class="column-left">
+            <p>Attomus is developing two new products</p>
+            <ul>
+                <li>CuriousLee</li>
+                <li>Semafore</li>
+            </ul>
+            <p><a href="/products/curiouslee">CuriousLee</a> is a secure entity relationship mapping software of choice</p>
+            <p><a href="/products/semafore">Semafore</a> is a secure business messaging platform</p>
+            
+        
+        </div>
+        <div class="column-right blog__content">
+
+            {{ partial "subscribe_list_page.html" . }}                    
+                      
+
+            
+        </div>
+        </div>
+    </div>
+
+        
+        <!-- /post -->    
+        
+    </div>
+
+</main>
+
+{{ partial "footer" . }}

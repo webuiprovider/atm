@@ -1,0 +1,218 @@
+<footer>
+
+    <div class="footer__row">
+        <div class="footer__about-us">
+            <h3>About Us</h3>
+            <p>ATTOMUS is an advanced technology company offering security services, technology applications, and management
+                consultancy for corporations and government entities in the UK and globally.</p>
+        </div>
+
+        <div class="footer__navbar">
+            <h3>Services</h3>
+
+            {{ if .Site.Menus.main }}
+            <ul class="navbar__nav">
+                {{ range sort .Site.Menus.main }}
+                {{ if and .HasChildren (eq .Name "Services") }}
+
+
+                {{ range .Children }}
+                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }}
+
+                {{ end }}
+                {{ end }}
+            </ul>
+            {{ end }}
+
+        </div>
+
+        <div class="footer__navbar">
+            <img data-src="/img/ATTOMUS-light-01.png" class="cld-responsive" alt="Attomus logo" width="260px">
+            <ul class="navbar__nav" style="padding: 20px 0 0 30px">
+                <li><a href="/terms">terms & conditions</a></li>
+                <li><a href="/privacy">privacy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer__contact-us">
+            <h3>Contact Info</h3>
+            <p>Attomus Limited<br>
+                23 Berkeley Square<br>
+                Mayfair<br>
+                London, W1J 6HE<br>
+                United Kingdom</p>
+            <p>
+                +44 20 3026 6250<br>
+                <a href="mailto: support@attomus.com?subject = Contact from Attomus.com">support@attomus.com</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="footer__row">
+        <div class="footer__row__footer__copyright-container">
+
+
+            <div class="footer__icons-navbar">
+                <!--
+                 {{ if .Site.Menus.icon }}
+                <ul class="footer__icons-navbar__nav">
+                    {{ range sort .Site.Menus.icon }}
+                    <li class="footer__icons-navbar__icon"><a target="_blank" href="{{ .URL }}"><img data-src="/img/{{ .Name }}"
+                                class="cld-responsive" alt="Attomus"></a></li>
+                    {{ end }}
+                </ul>
+                {{ end }} -->
+
+<!--   SA removed 1.2.19 to embed timeline
+             <blockquote class="twitter-tweet" data-lang="en">
+                    <p lang="en" dir="ltr">Poor cybersecurity of US Space Assets as
+                    <a href="https://twitter.com/hashtag/battlespace?src=hash&amp;ref_src=twsrc%5Etfw">#battlespace</a>
+                        moves beyond the skies <a href="https://twitter.com/hashtag/cybersecurity?src=hash&amp;ref_src=twsrc%5Etfw">#cybersecurity</a>
+                        <a href="https://t.co/Ci76oJhkaR">https://t.co/Ci76oJhkaR</a></p>&mdash; AttomusHQ (@AttomusHQ)
+                    <a href="https://twitter.com/AttomusHQ/status/1031477514131189765?ref_src=twsrc%5Etfw">August 20,
+                        2018</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+-->
+                <div style="clear: both">
+                <a class="twitter-timeline" 
+                   data-lang="en" 
+                   data-width="500" 
+                   data-theme="light" 
+                   data-link-color="#00a99d"
+                   data-show-replies="false" 
+                   data-tweet-limit="1" 
+                   data-chrome="nofooter no header"
+                   href="https://twitter.com/AttomusHQ?ref_src=twsrc%5Etfw" >
+                   Tweets by AttomusHQ
+                </a>
+                </div>
+                <br>
+                <div>
+                <a class="twitter-follow-button" align="center"
+                   href="https://twitter.com/AttomusHQ?ref_src=twsrc%5Etfw" >
+                    Follow us here!
+                </a>
+                </div>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        
+            </div>
+
+            <div class="footer__copyright">
+                <p align="center">Copyright <script>document.write(new Date().getFullYear());</script> &copy; All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/main.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+<script>
+$(document).ready(function(){
+  $('.customer-logos').slick({
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 1500,
+      arrows: false,
+      dots: false,
+      pauseOnHover: false,
+      responsive: [{
+          breakpoint: 768,
+          settings: {
+              slidesToShow: 4
+          }
+      }, {
+          breakpoint: 520,
+          settings: {
+              slidesToShow: 3
+          }
+      }]
+  });
+});
+
+$(document).ready(function() {
+  // close all dropdowns that are open
+  /*$('body').click(function(e) {
+      $('.nav-item.show').removeClass('show');
+      //$('.nav-item.clicked').removeClass('clicked');
+      $('.dropdown-menu.show').removeClass('show');
+  });*/
+
+//   $('.nav-item').click( function(e) {
+//     $(this).addClass('clicked')
+//   });
+
+  // show dropdown for the link clicked
+  
+  /*$('.nav-item').hover(function(e) {
+      if ($('.nav-item.show').length < 1) {
+        $('.nav-item.clicked').removeClass('clicked');
+      }
+      if ($('.nav-item.clicked').length < 1) {
+          $('.nav-item.show').removeClass('show');
+          $('.dropdown-menu.show').removeClass('show');
+          $dd = $(this).find('.dropdown-menu');
+          $dd.parent().addClass('show');
+          $dd.addClass('show');
+      }
+  }); */
+
+  
+  $('ul.navbar-nav li.dropdown').hover(function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+  }, function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+  });
+
+
+});
+</script>
+
+
+<script>
+    const cl = cloudinary.Cloudinary.new({
+        cloud_name: 'do4r4mxm0'
+    })
+    cl.responsive()
+
+
+    if (window.location.href.endsWith("message-received")) {
+        document.getElementById("message-received").classList.toggle("show")
+        document.getElementById("message-received__close").addEventListener('click', e => {
+            document.getElementById("message-received").classList.toggle("show")
+        })
+        setTimeout(() => {
+            // document.getElementById("message-received").scrollIntoView();
+            // window.scrollTo(0, 200);
+        }, 100);
+    }
+</script>
+
+
+<script>
+    document.getElementById('atlassian-form__submit').addEventListener('click', function (e) {
+        checked_primary_business = document.querySelectorAll(".primary-business input[type=checkbox]:checked").length;
+        checked_goal_objective = document.querySelectorAll(".goal-objective input[type=checkbox]:checked").length;
+        checked_interest = document.querySelectorAll(".interest input[type=checkbox]:checked").length;
+
+        if (!(checked_primary_business &&
+                checked_goal_objective &&
+                checked_interest)) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+    });
+</script>
+</body>
+
+</html>

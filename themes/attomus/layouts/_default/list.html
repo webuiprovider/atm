@@ -1,0 +1,17 @@
+{{ partial "header" . }}
+
+<main>
+
+    <h2>{{ .Title }}</h2>
+
+    {{ range .Pages }} 
+    <div class="default-page">
+        {{ $.Scratch.Set "link" .RelPermalink }}
+        <h4><a href="{{ .Scratch.Get "link" }}">{{ .Title }}</a></h4>
+    </div>
+    {{ end }}
+
+</main>
+
+
+{{ partial "footer" . }}

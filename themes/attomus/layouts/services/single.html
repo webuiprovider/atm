@@ -1,0 +1,21 @@
+{{ partial "header" . }}
+
+<main>
+
+    {{  $background := .Params.feat | printf "background-image: url(/img/%s);" }}
+    <div class="services__header" style="{{ $background | safeCSS }}">
+        <div class="services__blur">
+
+            <h2>{{ .Title }}</h2>
+            <p><a href="/services">Services</a> / {{ .Title }}</p>
+
+        </div>
+    </div>
+
+    <!-- <h2 class="default-title">{{ .Title }}</h2> -->
+    <div class="services__content">{{ .Content }}</div>
+
+</main>
+
+{{ partial "footer.html" . }}
+

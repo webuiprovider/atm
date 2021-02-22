@@ -1,0 +1,18 @@
+{{ $.Scratch.Set "tags_available" false }}
+{{ range $name, $items := .Site.Taxonomies.tags }}
+    {{ if ne $name "featured" }}
+        {{ $.Scratch.Set "tags_available" true }}
+    {{ end }}
+{{ end }}
+
+{{ if eq ($.Scratch.Get "tags_available") true }}
+    {{ if eq ($.Scratch.Get "page_type") "list" }}
+        <h4 class="post-title blog__title">Topics</h4>
+    {{ end }}
+{{ end }}
+
+{{ range $name, $items := .Site.Taxonomies.tags }}
+    {{ if ne $name "featured" }}
+        <a class="tag-cloud" href="{{ $.Site.BaseURL }}tags/{{ $name | urlize | lower }}/">{{ $name }}</a>
+    {{ end }}
+{{ end }}

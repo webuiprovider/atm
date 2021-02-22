@@ -1,0 +1,615 @@
+.blog {
+    margin-bottom: 90px;
+}
+
+.blog__title {
+    text-align: left;
+    /* SA 8.2.20 corp colors */
+    color: #00A99D;
+}
+
+.blog__header {
+    height: 450px;
+    background: url(/img/people-blog.jpg);
+    background-position: 0% center;
+    background-size: cover;
+    margin-bottom: 80px;
+}
+
+.blog__header .blog__blur {
+    padding-top: 130px;
+    background: rgba(52, 52, 60, 0.6);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.blog__header h2 {
+    display: block;
+    font-size: 70px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.1;
+    margin: 120px 10% 15px;
+    margin-bottom: 10px;
+}
+
+.blog__header p {
+    /* font-size: 15px; SA 13.10.19 removed overwritten property */
+    color: rgba(255, 255, 255, .75);
+    line-height: 1.4;
+    font-size: 20px !important;
+    margin: 0 10% 15px;
+    margin-bottom: 10px;
+}
+
+.blog__header a {
+    /* font-size: 15px; SA 13.10.19 removed overwritten property */
+    color: rgba(255, 255, 255, .75);
+    line-height: 1.4;
+    text-align: center;
+    font-size: 20px !important;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.blog__header a:hover {
+    color: black;
+}
+
+.blog__content {
+    /* padding: 0 7%; */
+    margin-bottom: 70px;
+    padding: 10px 175px 10px 175px;
+
+}
+
+.blog__content.singleblog {
+    padding: 10px 10% 10px 10%;
+    /* SA 13.10.19 added max-width to ease reading */
+    text-rendering: optimizeLegibility;
+    max-width:680px;
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+.blog__content p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(14,30,37,.8);
+    text-align: justify;
+    line-height: 2;
+
+}
+
+/* SA added 13.10.19 to corp green */
+.blog__content p a{
+    color: #00A99D;
+}
+
+.blog__content a.bloglink {
+   color: inherit;
+    text-decoration: none;
+    font-size: 17px;
+    /* background-image: linear-gradient(currentColor,currentColor); */
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: center bottom 8%;
+    background-origin: padding-box;
+    /* SA 6.2.20 removed as when selecting text it all blurred and looked crap */
+    /* text-shadow: 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff; */
+    position: relative;
+    z-index: 2;
+}
+.blog__content a.bloglink:hover {
+    background-image: linear-gradient(currentColor,currentColor);
+}
+
+.blog__content li {
+    /* SA updated 13.10.19 increase font size */
+   /* font-size: 15px;
+    font-weight: 300; */
+    font-size: 1.1rem;
+    color: #606060;
+    /* line-height: 1.4; SA 13.10.19 Overwritten property removed  */
+    line-height: 2;
+}
+.blog__content h1 {  /* SA added 13.10.19 to make blog headings corporate green */
+    color: #00A99D;
+    font-weight: normal;
+    font-size: 32px;
+}
+.blog__content h2 {  /* SA added 13.10.19 to make blog headings corporate green */
+    color: #00A99D;
+    font-weight: normal;
+    font-size: 28px;
+}
+.blog__content h3 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #00A99D;
+    font-style: normal;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.blog__content h3 a {
+    color: inherit;
+    text-decoration: none !important;
+    font-size: 22px;
+    /*background-image: linear-gradient(currentColor,currentColor);*/
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: center bottom 8%;
+    background-origin: padding-box;
+    /* SA 8.2.20 removed blur */
+    /* text-shadow: 3px 0 #fff, 2px 0 #fff, 1px 0 #fff, -1px 0 #fff, -2px 0 #fff, -3px 0 #fff; */
+    position: relative;
+    z-index: 2;
+}
+
+.blog__content h3 a:hover {
+    background-image: linear-gradient(currentColor,currentColor);
+}
+
+/* SA 8.2.20 added <a> */
+.blog__content h4 a {
+    font-size: 16px;
+    font-weight: 300;
+    color: #00A99D; /* SA changed 13.10.19 to corporate green */
+    /* line-height: 1.4; SA 13.10.19 removed overwritten property */
+    text-align: left;
+    line-height: 2;
+    /* SA 8.2.20 removed underline */
+    text-decoration: none !important;
+}
+
+.blog__content li p {
+    text-align: left;
+}
+
+.blog__content img{
+    width: 80%; /* TODO allow amendments in the blog itself */
+    height: auto;
+}
+
+.blog__flat-row--left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row nowrap;
+    height: auto;
+}
+
+.blog__flat-row--right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row-reverse nowrap;
+    height: auto;
+}
+
+.blog__flat-row__content {
+    background-color: #f7f8fa;
+    max-width: 50vw;
+    min-width: 50vw;
+    display: flex;
+    flex-flow: column nowrap;
+    height: auto;
+    padding: 50px 60px;
+    box-sizing: border-box;
+
+    margin-top: 25px;
+    margin-bottom: 80px;
+    margin-left: -25px;
+
+    z-index: 111;
+}
+
+.blog__flat-row--right .blog__flat-row__content {
+    margin-left: 0;
+    margin-right: 25px !important;
+}
+
+.blog__flat-row--right .blog__flat-row__image {
+    margin-right: -25px;
+
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.blog__flat-row__image {
+    max-width: 35vw;
+    min-width: 35vw;
+    max-height: 35vw;
+    min-height: 35vw;
+    overflow: hidden;
+    height: 100%;
+    margin-left: -25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+
+    visibility: visible;
+    animation-duration: 1s;
+    animation-delay: 0.2s;
+    animation-name: fadeInUp;
+}
+
+.blog__flat-row__image img {
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    display: flex;
+}
+
+.blog__flat-row__content h2 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #34343c;
+    line-height: 1.4;
+    margin: 0 0 15px;
+}
+
+.blog__flat-row__content p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #606060;
+    line-height: 2;
+    margin: 5px 0;
+}
+
+
+.blog__flat-row__content ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.blog__flat-row__content ul li {
+    display: flex;
+    margin: 5px 0;
+
+    padding-left: 1em;
+    text-indent: -.7em;
+}
+
+.blog__flat-row__content ul li::before {
+    content: "• ";
+    color: black;
+    /* or whatever color you prefer */
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.blog__flat-row__content.black ul li::before {
+    display: none;
+}
+
+.blog__flat-row__content.black ul li {
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.blog__flat-row__content.black ul h3 {
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+.blog__flat-row__content ul h3 {
+    font-weight: 300;
+    color: #34343c;
+    line-height: 1.4;
+    margin: 0 0 15px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.blog__flat-row__content li {
+    font-size: 15px;
+    font-weight: 300;
+    color: #34343c;
+}
+
+
+.blog__flat-row__content ul .img-wrapper {
+    width: 55px;
+    min-width: 55px;
+    max-width: 55px;
+    height: 55px;
+    min-height: 55px;
+    max-height: 55px;
+    background: #000;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.blog__flat-row__content ul img {
+    width: 20px;
+    filter: brightness(0) invert(100%);
+}
+
+.blog__flat-row__content .blog__flat-row__content__footer {
+    color: #34343c;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.4;
+    font-style: normal;
+}
+
+
+.blog__clients {
+    margin: -40px 0 70px 0 !important;
+    padding: 0 5%;
+}
+
+.attomus-clients {
+}
+
+.attomus-clients div {
+    height: 100%;
+}
+
+.attomus-clients div a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    text-decoration: none;
+    height: 100%;
+    min-height: 160px;
+}
+
+.attomus-clients div a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex: 1;
+}
+
+.attomus-clients div a p {
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+    margin: 3px 0 0 0;
+    color: #444;
+}
+
+@media (max-width: 992px) {
+    .blog__header {
+        height: 360px;
+        margin-bottom: 64px;
+    }
+
+    .blog__header .blog__blur {
+        padding-top: 104px;
+    }
+
+    .blog__header h2 {
+        font-size: 56px;
+        margin: 96px 10% 12px;
+        margin-bottom: 8px;
+    }
+
+    .blog__header p {
+       /*  font-size: 12px; SA 13.10.19 removed overwritten property */
+        font-size: 16px !important;
+        margin: 0 10% 12px;
+        margin-bottom: 8px;
+    }
+
+    .blog__header a {
+       /* font-size: 12px; SA 13.10.19 removed overwritten property */
+        font-size: 16px !important;
+        margin-bottom: 8px;
+    }
+
+    .blog__content {
+        padding: 0 7%;
+        margin-bottom: 56px;
+    }
+
+    .blog__content p {
+        font-size: 14px;
+    }
+
+    .blog__content h3 {
+        font-size: 22.4px;
+        margin-bottom: 12px;
+    }
+
+    .blog__content h4 {
+        font-size: 14.4px;
+    }
+
+    .blog__clients {
+        margin: -40px 0 70px 0 !important;
+        padding: 0 0%;
+    }
+
+
+    .blog__flat-row--left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-flow: column-reverse nowrap;
+        height: auto;
+        margin-top: 10px;
+        box-shadow: 0 2px 6px rgba(52, 52, 60, 0.2)
+    }
+
+    .blog__flat-row--right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-flow: column-reverse nowrap;
+        height: auto;
+        margin-top: 10px;
+        box-shadow: 0 2px 6px rgba(52, 52, 60, 0.2)
+    }
+
+    .blog__flat-row__content {
+        background-color: #f7f8fa;
+        max-width: 100%;
+        min-width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        height: auto;
+        padding: 50px 5%;
+        box-sizing: border-box;
+
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+
+        z-index: 111;
+    }
+
+    .blog__flat-row--right .blog__flat-row__content {
+        margin-left: 0;
+        margin-right: 0 !important;
+    }
+
+    .blog__flat-row--right .blog__flat-row__image {
+        margin-right: 0;
+
+    }
+
+    .blog__flat-row__image {
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 250px;
+        min-height: 100%;
+        overflow: hidden;
+        height: 100%;
+        margin-left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+
+
+        visibility: visible;
+        animation-duration: 1s;
+        animation-delay: 0.2s;
+        animation-name: fadeInUp;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .column-left {
+        width: 100%;
+    }
+    .column-right {
+        width: 100%;
+    }
+
+
+    .column-right {
+        /* float: left; */
+        padding: 20px 0px 0px 0px;
+    }
+}
+
+/* Create two equal columns that floats next to each other */
+.column-left {
+    float: left;
+    width: 65%;
+    padding: 0px 30px 0px 0px;
+    
+}
+.column-right {
+    float: left;
+    width: 30%;
+    padding: 0px 0px 0px 15px;
+    
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column-left {
+        width: 100%;
+    }
+    .column-right {
+        width: 100%;
+    }
+
+
+    .column-right {
+        /* float: left; */
+        padding: 20px 0px 0px 0px;
+    }
+}
+
+.tag-cloud {
+    position: relative;
+    display: inline-block;
+    line-height: 0.5;
+    text-align: center;
+    /* background: transparent; SA 13.10.19 removed overwritten property */
+    background-image: none;
+    border-width: 1px;
+    border-style: solid;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 2px !important;
+    color: rgba(14,30,37,.54);
+    border-color: #ebebef;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 16px;
+    font-weight: 300;
+    padding: 12px 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+.separator { /* add the new bullet point */
+    display: inline-block;
+      content: '';
+      -webkit-border-radius: 0.375rem;
+      border-radius: 0.375rem;
+      height: 0.25rem;
+      width: 0.25rem;
+      margin-right: 0.4rem;
+      background-color: #5a5a5a;
+  }
+
+.highlight {
+    margin:0 0 25px;
+    overflow:hidden;
+    padding:2px;
+    background-color:#272822;
+    border:1px solid #afcde3;
+    border-radius: 16px;
+}

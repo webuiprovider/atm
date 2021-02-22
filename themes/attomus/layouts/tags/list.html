@@ -1,0 +1,64 @@
+{{ partial "header" . }}
+
+<main>
+
+    {{  $background := .Params.feat | printf "background-image: url(/img/%s);" }}
+    <div class="blog__header" style="{{ $background | safeCSS }}">
+        <div class="blog__blur">
+
+            <h2>{{ .Title }}</h2>
+            <p><a href="/blog">Blog</a> / {{ .Title }}</p>
+
+        </div>
+    </div>
+
+    <!-- <h2 class="default-title">{{ .Title }}</h2> -->
+    <div class="blog">
+        <!-- post -->
+        <div class="blog__content">
+        <div class="row">
+        <div class="column-left">
+            <!-- SA fixed tag page by changing section from "posts" to "blog" -->
+        {{ range where .Paginator.Pages "Section" "blog" }}
+
+                <h3 class="post-title blog__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <!-- SA 8.2.20 moved from first 1 to first 5 and changed css from "bloglink" to "tag-cloud"-->
+                {{ range $name, $items := .Params.tags | first 5 }}
+                    <a class="tag-cloud" href="{{ $.Site.BaseURL }}tags/{{ $items | urlize | lower }}/">
+                        {{ . }}
+                    </a>
+                {{ end }}&nbsp;&nbsp;<!-- SA 8.2.20 removed &nbsp;{{ .Date.Format "January, 2006" }} -->
+                
+                <p>
+                    {{ .Summary | safeHTML }}
+                </p>
+                {{ if .Truncated }}
+                <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+                <div>
+                    <a class="bloglink" href="{{ .RelPermalink }}">Read More…</a>
+                </div>
+                {{ end }}
+            
+                
+                
+        {{ end }}
+        </div>
+        <div class="column-right">
+            <h4 class="post-title blog__title">Topics</h4>
+            {{ partial "tags" . }}
+
+            <!-- SA 8.2.20 removed <h4 class="post-title blog__title">Featured</h4> -->
+            {{ partial "featured" . }}
+        </div>
+        </div>
+        {{ partial "pagination" . }}
+    </div>
+
+        
+        <!-- /post -->    
+        
+    </div>
+
+</main>
+
+{{ partial "footer" . }}

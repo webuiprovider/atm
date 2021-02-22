@@ -1,0 +1,61 @@
+<style>
+.dropbtn {
+    color: #000;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1; 
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2999;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {/*background-color: #3e8e41;*/}
+</style>
+{{ $.Scratch.Set "semaforeul" "site-menu main-menu js-clone-nav mr-auto d-none d-lg-block" }}
+{{ $.Scratch.Set "semaforeli" "nav-link" }}
+{{ $.Scratch.Set "curiousul" "site-menu main-menu js-clone-nav mr-auto d-none d-lg-block" }}
+{{ $.Scratch.Set "curiousli" "nav-link" }}
+{{ if .Site.Menus.main }}
+    <nav class="site-navigation position-relative text-right" role="navigation">
+        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+        {{ range sort .Site.Menus.main }}
+            {{ if .HasChildren }}
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="window.location ={{ .URL }}">{{ .Name }}</button>
+                    <div class="dropdown-content">
+                        {{ range .Children }}
+                        <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
+                        {{ end }}
+                    </div>
+                </div>
+            {{ else }}
+                <li><a href="{{ .URL }}" class="nav-link">{{ .Name }}</a></li>
+            {{ end }}
+        {{ end }}
+        <li><a href="" class="nav-link">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        </ul>
+    </nav>     
+{{ end }}
+

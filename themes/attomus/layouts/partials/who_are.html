@@ -1,0 +1,47 @@
+
+    <section class="who-are">
+        <img class="who-image" src="images/who-are.jpg">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8 offset-lg-4 feature-right section-gap">
+                <div class="row single-feature-wrap justify-content-end">
+                  <div class="title-wrap col-lg-10 col-sm-12">
+                    <h1>{{.Params.whoWeAre.heading}}</h1>
+                    <p>{{.Params.whoWeAre.desc}}</p>
+                  </div>
+                  {{range .Params.whoWeAre.lists}}                    
+                        <div class="col-lg-5">
+                            <div class="single-feature">
+                                <h4>{{.heading}}</h4>
+                                <p> {{.text}}</p>
+                            </div>
+                        </div>
+                  {{end}}
+
+
+                  
+                  <div class="col-lg-5">                    
+                    <div class="single-feature justify-content-center align-center d-flex">
+                        <div class="h-100">
+                          <a href="#" class="btn btn-danger">Read More..</a>
+                        </div>                      
+                    </div>
+                  </div>
+  
+                  {{ with .Params.whoWeAre.information}}
+                  <div class="col-lg-10">                    
+                    <div class="single-feature">
+                      <p>{{.}}</p>
+                      </div>
+                  </div>
+
+                  {{end}}
+  
+  
+                  
+                </div>
+  
+            </div>
+          </div>
+        </div>
+      </section>

@@ -1,0 +1,49 @@
+@import url('./partials/header.css');
+@import url('./partials/footer.css');
+@import url('./partials/index.css');
+@import url('./partials/contact.css');
+@import url('./partials/about.css');
+@import url('./partials/blog.css');
+@import url('./partials/services.css');
+@import url('./partials/search.css');
+@import url('./partials/404.css');
+@import url('./partials/pagination.css');
+@import url('./partials/syntax.css');
+@import url('./partials/font-awesome.css');
+@import url('./partials/social.css');
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    /* font-family: "Roboto", sans-serif; */
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    /* min-width: 978px; */
+}
+
+
+::selection {
+    background: #000000!important;
+    color: white;
+}
+::-moz-selection {
+    background: #000000!important;
+    color: white;
+}
+
+@media screen and (min-width: 1800px ) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
+
+@media screen and (min-width: 900px) {
+
+}
+
+@media screen and (min-width: 600px) {
+
+}
+

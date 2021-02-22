@@ -1,0 +1,72 @@
+{{ partial "header" . }}
+
+<main>
+
+    {{  $background := .Params.feat | printf "background-image: url(/img/%s);" }}
+    <div class="blog__header" style="{{ $background | safeCSS }}">
+        <div class="blog__blur">
+            <h2>Blog</h2>
+            <p><a href="/">Home</a> /<!--{{ .Title }}--> Blog</p>
+        </div>
+    </div>
+
+    <!-- <h2 class="default-title">{{ .Title }}</h2> -->
+    <div class="blog">
+        <!-- post -->
+        <div class="blog__content">
+            <div class="row">
+                <div class="column-left">
+                    {{ range where .Paginator.Pages "Section" "blog" }}
+
+                        ‘<h3 class="post-title blog__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                        <!-- SA 6.2.20 updated to show first 5 tags (instead of just 1) -->
+                        {{ range $name, $items := .Params.tags | first 5 }}
+
+                        <!-- SA 30.3.20 listed tags excluding "featured" -->
+
+                            {{ if ne $items "featured" }}
+                                 <!-- SA 6.2.20 updated class from "bloglink" to "tag-cloud" to give consistent look -->
+                                 <a class="tag-cloud" href="{{ $.Site.BaseURL }}tags/{{ $items | urlize | lower }}/">
+                                     {{ . }}
+                                 </a>
+                            {{ end }}
+                        {{ end }}&nbsp;
+
+                        <!-- SA removed to remove date from post
+                        <div class="separator"></div>
+                         {{ .Date.Format "January 2, 2006" }}
+                         SA ends -->
+                        <p>
+                            {{ .Summary | safeHTML }}
+                        </p>
+                        {{ if .Truncated }}
+                            <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+                            <div>
+                                <a class="bloglink" href="{{ .RelPermalink }}">Read More…</a>
+                            </div>
+                        {{ end }}
+                    {{ end }}
+                </div>
+                <div class="column-right blog__content">
+
+                    {{ partial "subscribe_list_page.html" . }}
+
+
+                    {{ $.Scratch.Set "page_type" "list" }}
+                    {{ partial "tags" . }}
+
+
+                    {{ partial "featured" . }}
+                </div>
+            </div>
+            {{ partial "pagination" . }}
+        </div>
+
+
+        <!-- /post -->
+
+    </div>
+
+</main>
+
+{{ partial "footer" . }}

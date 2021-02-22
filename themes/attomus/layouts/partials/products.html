@@ -1,0 +1,20 @@
+<section class="ftco-intro">
+    <div class="container">
+        <div class="row no-gutters">           
+            {{ range $index, $elem :=  where .Site.RegularPages "Section" "products"}}
+                <div class="  col d-flex">
+                    <div class="{{if eq  $index 0 }} intro aside-stretch {{end}} intro color-1 d-lg-flex w-100">
+                        <div class="icon">
+                            <span class="flaticon-employee"></span>
+                        </div>
+                        <div class="text">
+                            <h2>{{.Title}} </h2>
+                <p>{{.Description}}</p>
+                <a href="{{.URL}}" class="btn btn-white">View Product</a>
+                        </div>
+                    </div>
+                </div>
+            {{end}}
+        </div>
+    </div>
+</section>

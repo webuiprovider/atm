@@ -1,0 +1,38 @@
+
+      <section class="section bg-gray" id="blog-section">
+        <div class="container">
+          <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 heading-section text-center">
+              <span class="subheading">Blog</span>
+              <h2 class="mb-4">Our Blog</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            </div>
+          </div>
+
+        <div class="row d-flex">
+            {{range first 3 ( where site.RegularPages  "Section" "blog")}}
+          <div class="col-md-4 d-flex mb-3">
+            <div class="blog-entry justify-content-end">
+                <a href="{{.RelPermalink}}" class="img-cover" style="background-image: url('images/image_1.jpg');">
+                  
+                </a> 
+                <div class="text mt-3 float-right d-block">
+                  
+                  <h3 class="heading"><a href="{{.RelPermalink}}"> {{.Title}}</a></h3>
+                  
+                  <p>{{if .Description }} {{.Description}} {{else}} {{.Params.markdown}} {{end}}</p>
+                  <div class="d-flex align-items-center mt-4 meta">
+                    <p class="mb-0"><a href="{{.RelPermalink}}" class="btn">Read More <span class="fa fa-long-arrow-right"></span></a></p>
+                    <p class="ml-auto mb-0">
+                    <a href="#" class="mr-2">Admin</a>
+                    <a href="#" class="meta-chat"><span class="fa fa-commenting-o"></span> 3</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          {{end}}
+        </div>
+        </div>
+        </section>

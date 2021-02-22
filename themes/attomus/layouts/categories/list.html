@@ -1,0 +1,49 @@
+{{ partial "header" . }}
+
+<main>
+
+    {{  $background := .Params.feat | printf "background-image: url(/img/%s);" }}
+    <div class="blog__header" style="{{ $background | safeCSS }}">
+        <div class="blog__blur">
+
+            <h2>{{ .Title }}</h2>
+            <p><a href="/">Home</a> / {{ .Title }}</p>
+
+        </div>
+    </div>
+
+    <!-- <h2 class="default-title">{{ .Title }}</h2> -->
+    <div class="blog">
+        <!-- post -->
+        <div class="blog__content">
+        {{ range where .Paginator.Pages "Section" "posts" }}
+            
+                
+                
+                {{ range $name, $items := .Params.tags }}                                        
+                    <a class="" href="{{ $.Site.BaseURL }}tags/{{ $items | urlize | lower }}/">
+                        {{ . }}
+                    </a>
+                {{ end }}
+                <p>{{ .Date }}</p>
+                <h3 class="post-title left-align"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <p>
+                    {{ .Summary | safeHTML }}
+                </p>
+                {{ if .Truncated }}
+                <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+                <div>
+                    <a href="{{ .RelPermalink }}">Read More…</a>
+                </div>
+                {{ end }}
+        {{ end }}
+        {{ partial "pagination" . }}
+    </div>
+
+        <!-- /post -->    
+        
+    </div>
+
+</main>
+
+{{ partial "footer" . }}

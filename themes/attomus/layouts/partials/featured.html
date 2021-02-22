@@ -1,0 +1,17 @@
+{{ if .Site.Taxonomies.tags.featured }}
+<h4 class="post-title blog__title">Featured</h4>
+{{ range $name, $items := sort .Site.Taxonomies.tags.featured | last 2 }}
+    
+<h4 class="post-title blog__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+
+<p>
+        {{ if gt (len .Summary) 150 }}
+            {{slicestr .Summary 0 150 | markdownify }}...
+        {{ else }}
+            {{slicestr .Summary 0 (len .Summary) | markdownify }}...
+        {{ end }}
+</p>
+
+{{ end }}
+
+{{ end }}

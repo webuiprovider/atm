@@ -1,0 +1,26 @@
+
+
+    <!-- home
+    ================================================== -->
+    <section class="hero-wrap">      
+        <div class="hero-image" style="background-image: url({{ .Params.hero.image}});">
+         
+        </div>
+  
+          <div class="container hero-content py-5">
+              <div class="row">
+                <div class="col-sm-6 col-lg-8 col-lg-8">
+                  <h1> {{ .Params.hero.heading}} </h1>    
+                    <p class="py-3"> {{ .Params.hero.desc}} </p>
+                    <div class="home-content__button">
+                      <a class="btn-video" href="{{ .Params.hero.videoLink}}" data-toggle="modal" data-target="#homeVideo" onclick="playVid()">
+                          <span class="video-icon"><I class="fa fa-play"></i></span>
+                      </a>  
+                      <a href="{{ .Params.hero.btnURL}}" class="btn  btn-lg btn-green">
+                        {{ .Params.hero.btnText}}
+                      </a>
+                  </div>   
+                </div>
+              </div>   
+          </div> <!-- end hero -->  
+      </section> <!-- hero wrap -->

@@ -1,0 +1,168 @@
+{{ partial "header" . }}
+
+<main>
+    <div class="about-us no-margin">
+        <div class="about-us__header no-margin">
+            <div class="about-us__blur">
+
+                <h2 class="keyworkd-holder"></h2>
+                <p><a href="/services">Attomus</a> / <span class="keyworkd-holder"></span></p>
+
+            </div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-results">
+                <!-- <div class="search-results__item">
+                    <h3>Commodo sint irure</h3>
+                    <p>Voluptate nulla magna tempor sit ex aliqua.</p>
+                    <div class="search-results__item__footer">
+                        <p>05/07/2018</p>
+                    </div>
+                </div>
+                <div class="search-results__item">
+                    <h3>Commodo sint irure</h3>
+                    <p>Voluptate nulla magna tempor sit ex aliqua.</p>
+                    <div class="search-results__item__footer">
+                        <p>05/07/2018</p>
+                    </div>
+                </div>
+                <div class="search-results__item">
+                    <h3>Commodo sint irure</h3>
+                    <p>Voluptate nulla magna tempor sit ex aliqua.</p>
+                    <div class="search-results__item__footer">
+                        <p>05/07/2018</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="search-widget">
+                <input id="searchWidgetInput" type="search" placeholder="Search ...">
+                <button>
+                    <img class="" src="/img/search.png" alt="Search">
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const keyword = localStorage.getItem('search-keyword');
+        document.querySelectorAll('.keyworkd-holder').forEach((e, k, p) => {
+            e.innerHTML = keyword;
+        })
+        document.getElementById('searchWidgetInput').value = keyword;
+
+        document.querySelector('.search-widget button').addEventListener("click", () => {
+            localStorage.setItem('search-keyword', document.getElementById('searchWidgetInput').value)
+            window.location = '/attomus-search'
+        });
+
+        document.getElementById('searchWidgetInput').addEventListener("keypress", (e) => {
+            if (e.keyCode == 13) {
+                localStorage.setItem('search-keyword', e.target.value)
+                window.location = '/attomus-search'
+            }
+        })
+
+
+
+        let lunrIndex,
+            $searchResults,
+            pagesIndex;
+
+
+        function initLunr() {
+
+            var request = new XMLHttpRequest();
+            request.open('GET', '/js/lunr/PagesIndex.json', true);
+
+            request.onload = function () {
+                if (request.status >= 200 && request.status < 400) {
+                    // Success!
+                    pagesIndex = index = JSON.parse(request.responseText);
+                    lunrIndex = lunr(function () {
+                        this.field("title", {
+                            boost: 10
+                        });
+                        this.field("tags", {
+                            boost: 5
+                        });
+                        this.field("content");
+                        this.ref("href");
+                        pagesIndex.forEach((page) => {
+                            this.add(page);
+                        });
+                    });
+
+                    initUI();
+                } else {
+                    console.error("We reached our target server, but it returned an error")
+                }
+            };
+
+            request.onerror = function () {
+                console.error("There was a connection error of some sort")
+            };
+
+            request.send();
+        }
+
+        initLunr();
+
+        function search(query) {
+            query = query.trim().toLowerCase();
+
+
+            const terms = query.split(' ');
+            let res1 = lunrIndex.search(query).filter((result) => Object.keys(result.matchData.metadata).length ==
+                terms.length).map(
+                (result) => pagesIndex.filter(page => page.href === result.ref)[0]);
+
+            console.log(res1)
+
+            return res1;
+
+            // return lunrIndex.search(query)
+            //     .map(
+            //         (result) => pagesIndex.filter(page => page.href === result.ref)[0]
+            //     );
+        }
+
+        function renderResults(results) {
+            if (!results.length) {
+                return;
+            }
+
+            $searchResults.innerHTML = '';
+
+            results.forEach(function (result) {
+                let $searchResultsItem = document.createElement("div", 'search-results__item');
+
+                let slicedContent = result && result.content && result.content.slice(0, 350);
+
+                $searchResultsItem.innerHTML =
+                    `
+                    <div class="search-results__item">
+                        <h3><a href="${result.href}">${result.title}</a></h3>
+                        <p>${slicedContent}${slicedContent.length === 350 && '...' || ''}</p>
+                        
+                    </div>
+                `
+                $searchResults.appendChild($searchResultsItem)
+
+            });
+        }
+
+        function initUI() {
+            $searchResults = document.querySelector(".search-results");
+            $searchResults.innerHTML = '';
+
+            renderResults(
+                search(keyword)
+            );
+        }
+    </script>
+
+</main>
+
+{{ partial "footer" . }}

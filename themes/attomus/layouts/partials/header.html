@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ .Title }}</title>
+    <!-- SA updated meta.description function 17.04.20 to avoid it being so 'samesy'-->
+    <!--
+        <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}"
+    -->
+    <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ if eq $isHomePage true }} {{ .Site.Params.description }} {{ else }} {{ .Description }}{{ end }}"
+          property="og:description">
+    <!-- SA end -->
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/main.js"></script>
+        
+    <!-- New Theme-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">        
+    <link rel="stylesheet" href="/css/flaticon.css">
+    <link rel="stylesheet" href="/css/style.css">
+     
+
+    <script src="{{.Site.BaseURL}}js/jquery.min.js"></script>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Roboto+Mono:400">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.6/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.6/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <script type="text/javascript" src="/js/vendor/lunr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+
+
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100087142-1"></script>
+
+    <!-- Twitter universal website tag code Added 8.5.19 -->
+    <script>
+        !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+        },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+            a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+        // Insert Twitter Pixel ID and Standard Event data below
+        twq('init','o19l0');
+        twq('track','PageView');
+    </script>
+    <!-- End Twitter universal website tag code -->
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-100087142-1');
+    </script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+                });
+            }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    {{ partial "top_head.html" }}
+
+
+
+
+    <nav class="navbar   navbar-expand-lg  navbar-light attomus-navbar" id="ftco-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="/"><img src="/img/ATTOMUS.png" alt="logo" class="img-fluid"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span> Menu
+          </button>
+    
+          <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">                
+                        {{ range .Site.Menus.main }}    
+                            {{ if .HasChildren }}
+                                <!-- Navbar dropdown -->
+                                <li class="nav-item dropdown dropdown-hoverable" >
+                                    <a href="{{ .URL }}" class="nav-link dropdown-toggle" > {{ .Name }}  </a>
+                                    <div class="dropdown-menu">
+                                        {{ range .Children }}
+                                        <a href="{{ .URL }}" class="dropdown-item">{{ .Name }}</a>
+                                        {{end}}
+                                    </div>
+                                </li>
+
+                            {{ else }}
+                                <li class="nav-item"><a href="{{ .URL }}" class="nav-link">{{ .Name }}</a></li>
+                            {{ end }}
+        
+                        {{ end }}    
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- END nav -->
+
+
+    
+    <div id="searchBar">
+        <input placeholder="Search ..." autofocus type="search">
+    </div>
+    <script>
+        document.querySelector('.js-search__toggle').addEventListener("click", () => {
+            document.querySelector('#searchBar').classList.toggle("show");
+            document.querySelector('#searchShow').classList.toggle("show");
+            document.querySelector('#searchClose').classList.toggle("show");
+
+            document.querySelector('#searchBar input').focus();
+        });
+
+        document.querySelector('#searchBar input').addEventListener("keypress", (e) => {
+            if (e.keyCode == 13) {
+                localStorage.setItem('search-keyword', e.target.value)
+                window.location = '/attomus-search'
+            }
+        })
+
+
+
+        document.querySelector('.js-navbar__toggle').addEventListener("click", () => {
+            document.querySelector('#nav-icon4').classList.toggle("open");
+            document.querySelector('.js-navbar__collapse').classList.toggle("open");
+        });
+    </script>

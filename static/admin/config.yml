@@ -1,0 +1,36 @@
+backend:
+  ## Live deployment
+  name: git-gateway
+  repo: attomus/attomus.com
+  accept_roles: #optional - accepts all users if left out
+     - admin
+     - editor
+
+publish_mode: editorial_workflow
+
+## Local dev
+#  name: bitbucket
+#  repo: attomus/attomus-hugo
+#  branch: bugfix/blog
+
+media_folder: 'static/blog-media'
+public_folder: '/blog-media'
+
+collections:
+  - name: "blog" # used in routes, e.g. content/blog
+    label: "Posts" # used in UI
+    label_singular: "Post"
+    folder: "content/blog"
+    create: true
+    format: toml-frontmatter
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: 'Image', name: 'image', widget: 'image', required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+  #    - {label: "Date published", name: "date", widget: "datetime", required: false}
+      - {label: "Published Date", name: "date", widget: "datetime", required: true, default: ""}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Introduction",name: "markdown", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}

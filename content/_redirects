@@ -1,0 +1,22 @@
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect domain aliases to primary domain
+https://www.aortagroup.com/*    https://attomus.com/:splat  301!
+https://www.aortacloud.com/*    https://attomus.com/:splat  301!
+https://aortagroup.com/*        https://attomus.com/:splat  301!
+https://aortacloud.com/*        https://attomus.com/:splat  301!
+
+# Redirect default Netlify subdomain to primary domain
+https://attomus.netlify.com/*   https://attomus.com/:splat  301!
+
+# Redirect non-https domain aliases to primary domain
+http://www.aortagroup.com/*     https://attomus.com/:splat  301!
+http://www.aortacloud.com/*     https://attomus.com/:splat  301!
+http://aortagroup.com/*         https://attomus.com/:splat  301!
+http://aortacloud.com/*         https://attomus.com/:splat  301!
+
+# Redirect default Netlify subdomain to primary domain
+http://attomus.netlify.com/*    https://attomus.com/:splat  301!
+
+# Fix duplicate pages issue for better SEO (used to be 200, now 301!)
+/*/index.html                   /:splat:                    301!

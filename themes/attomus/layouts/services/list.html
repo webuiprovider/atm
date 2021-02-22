@@ -1,0 +1,33 @@
+{{ partial "header" . }}
+
+<main>
+
+    <div class="services__header">
+        <div class="services__blur">
+
+            <h2>Services</h2>
+            <p><a href="/services">Attomus</a> / Services</p>
+
+        </div>
+    </div>
+
+    {{ range .Pages }}
+    <div class="services__flat-row--{{ .Params.direction }}">
+        <div class="services__flat-row__content">
+            <h4>{{ .Title }}</h4>
+            <div>
+                {{ markdownify .Description }}
+            </div>
+            <a href="{{ .RelPermalink }}">Learn More</a>
+        </div>
+        <div class="services__flat-row__image">
+            <img data-src="/img/{{ .Params.feat }}"
+                class="cld-responsive" alt="Attomus Services">
+        </div>
+    </div>
+    {{ end }}
+
+</main>
+
+
+{{ partial "footer" . }}

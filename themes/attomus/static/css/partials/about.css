@@ -1,0 +1,455 @@
+.about-us {
+    margin-bottom: 90px;
+}
+
+.about-us__header {
+    height: 450px;
+    background: url(/img/people-about-us.jpg);
+    background-position: 0% center;
+    background-size: cover;
+    margin-bottom: 80px;
+}
+
+.about-us__header .about-us__blur {
+    padding-top: 130px;
+    background: rgba(52, 52, 60, 0.6);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.about-us__header h2 {
+    display: block;
+    font-size: 70px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.1;
+    margin: 120px 10% 15px;
+    margin-bottom: 10px;
+}
+
+.about-us__header p {
+    /* font-size: 15px; SA 14.10.19 tidied up */
+    color: rgba(255, 255, 255, .75);
+    line-height: 1.4;
+    font-size: 20px !important;
+    margin: 0 10% 15px;
+    margin-bottom: 10px;
+}
+
+.about-us__header a {
+    /* font-size: 15px; SA 14.10.19 tidied up */
+    color: rgba(255, 255, 255, .75);
+    line-height: 1.4;
+    text-align: center;
+    font-size: 20px !important;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.about-us__header a:hover {
+    color: black;
+}
+
+.about-us__content {
+    padding: 0 7%;
+    /* margin-bottom: 70px;  SA 14.10.19 tidied up */
+    /* SA 13.10.19 added max-width to ease reading */
+    text-rendering: optimizeLegibility;
+    max-width:680px;
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+.about-us__content p {
+    font-size: 15px;
+    font-weight: 300;
+    color: #606060;
+  /*  line-height: 1.4;  SA 14.10.19 tidied up */
+  /*  text-align: center; SA 14.10.19 removed */
+    line-height: 2;
+    /* SA 13.10.19 added max-width to ease reading */
+    text-rendering: optimizeLegibility;
+    max-width:680px;
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+.about-us__content li {
+    font-size: 15px;
+    font-weight: 300;
+    color: #606060;
+ /*   line-height: 1.4; */
+    line-height: 2;
+}
+
+.about-us__content h3 {
+    font-size: 28px;
+    color: #34343c;
+    font-style: italic;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.about-us__content h4 {
+    font-size: 18px;
+    font-weight: 300;
+    color: #606060;
+ /*   line-height: 1.4;  SA 14.10.19 tidied up */
+    text-align: left;
+    line-height: 2;
+}
+
+.about-us__content li p {
+    text-align: left;
+}
+
+.about-us__flat-row--left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row nowrap;
+    height: auto;
+}
+
+.about-us__flat-row--right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row-reverse nowrap;
+    height: auto;
+}
+
+.about-us__flat-row__content {
+    background-color: #f7f8fa;
+    max-width: 50vw;
+    min-width: 50vw;
+    display: flex;
+    flex-flow: column nowrap;
+    height: auto;
+    padding: 50px 60px;
+    box-sizing: border-box;
+
+    margin-top: 25px;
+    margin-bottom: 80px;
+    margin-left: -25px;
+
+    z-index: 111;
+}
+
+.about-us__flat-row--right .about-us__flat-row__content {
+    margin-left: 0;
+    margin-right: 25px !important;
+}
+
+.about-us__flat-row--right .about-us__flat-row__image {
+    margin-right: -25px;
+
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.about-us__flat-row__image {
+    max-width: 35vw;
+    min-width: 35vw;
+    max-height: 35vw;
+    min-height: 35vw;
+    overflow: hidden;
+    height: 100%;
+    margin-left: -25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+
+    visibility: visible;
+    animation-duration: 1s;
+    animation-delay: 0.2s;
+    animation-name: fadeInUp;
+}
+
+.about-us__flat-row__image img {
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    display: flex;
+}
+
+.about-us__flat-row__content h2 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #34343c;
+    line-height: 2;
+    margin: 0 0 15px;
+}
+
+.about-us__flat-row__content p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #606060;
+    line-height: 2;
+    margin: 5px 0;
+}
+
+
+.about-us__flat-row__content ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.about-us__flat-row__content ul li {
+    display: flex;
+    margin: 5px 0;
+
+    padding-left: 1em;
+    text-indent: -.7em;
+}
+
+.about-us__flat-row__content ul li::before {
+    content: "• ";
+    color: black;
+    /* or whatever color you prefer */
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.about-us__flat-row__content.black ul li::before {
+    display: none;
+}
+
+.about-us__flat-row__content.black ul li {
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.about-us__flat-row__content.black ul h3 {
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+.about-us__flat-row__content ul h3 {
+    font-weight: 300;
+    color: #34343c;
+    line-height: 1.4;
+    margin: 0 0 15px;
+    font-size: 20px;
+    /* color: #34343c;
+    font-weight: 300;  SA 14.10.19 tidied up */
+    text-decoration: none;
+}
+
+.about-us__flat-row__content li {
+    font-size: 15px;
+    font-weight: 300;
+    color: #34343c;
+}
+
+
+.about-us__flat-row__content ul .img-wrapper {
+    width: 55px;
+    min-width: 55px;
+    max-width: 55px;
+    height: 55px;
+    min-height: 55px;
+    max-height: 55px;
+    background: #000;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.about-us__flat-row__content ul img {
+    width: 20px;
+    filter: brightness(0) invert(100%);
+}
+
+.about-us__flat-row__content .about-us__flat-row__content__footer {
+    color: #34343c;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.4;
+    font-style: normal;
+}
+
+
+.about-us__clients {
+    margin: -40px 0 70px 0 !important;
+    padding: 0 5%;
+}
+
+.attomus-clients {
+}
+
+.attomus-clients div {
+    height: 100%;
+}
+
+.attomus-clients div a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    text-decoration: none;
+    height: 100%;
+    min-height: 160px;
+}
+
+.attomus-clients div a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex: 1;
+}
+
+.attomus-clients div a p {
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+    margin: 3px 0 0 0;
+    color: #444;
+}
+
+@media (max-width: 992px) {
+    .about-us__header {
+        height: 360px;
+        margin-bottom: 64px;
+    }
+
+    .about-us__header .about-us__blur {
+        padding-top: 104px;
+    }
+
+    .about-us__header h2 {
+        font-size: 56px;
+        margin: 96px 10% 12px;
+        margin-bottom: 8px;
+    }
+
+    .about-us__header p {
+      /*  font-size: 12px; SA 14.10.19 tidied up */
+        font-size: 16px !important;
+        margin: 0 10% 12px;
+        margin-bottom: 8px;
+    }
+
+    .about-us__header a {
+        /* font-size: 12px;  SA 14.10.19 tidied up */
+        font-size: 16px !important;
+        margin-bottom: 8px;
+    }
+
+    .about-us__content {
+        padding: 0 7%;
+        margin-bottom: 56px;
+    }
+
+    .about-us__content p {
+        font-size: 14px;
+    }
+
+    .about-us__content h3 {
+        font-size: 22.4px;
+        margin-bottom: 12px;
+    }
+
+    .about-us__content h4 {
+        font-size: 14.4px;
+    }
+
+    .about-us__clients {
+        margin: -40px 0 70px 0 !important;
+        padding: 0 0%;
+    }
+
+
+    .about-us__flat-row--left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-flow: column-reverse nowrap;
+        height: auto;
+        margin-top: 10px;
+        box-shadow: 0 2px 6px rgba(52, 52, 60, 0.2)
+    }
+
+    .about-us__flat-row--right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-flow: column-reverse nowrap;
+        height: auto;
+        margin-top: 10px;
+        box-shadow: 0 2px 6px rgba(52, 52, 60, 0.2)
+    }
+
+    .about-us__flat-row__content {
+        background-color: #f7f8fa;
+        max-width: 100%;
+        min-width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        height: auto;
+        padding: 50px 5%;
+        box-sizing: border-box;
+
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+
+        z-index: 111;
+    }
+
+    .about-us__flat-row--right .about-us__flat-row__content {
+        margin-left: 0;
+        margin-right: 0 !important;
+    }
+
+    .about-us__flat-row--right .about-us__flat-row__image {
+        margin-right: 0;
+
+    }
+
+    .about-us__flat-row__image {
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 250px;
+        min-height: 100%;
+        overflow: hidden;
+        height: 100%;
+        margin-left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+
+
+        visibility: visible;
+        animation-duration: 1s;
+        animation-delay: 0.2s;
+        animation-name: fadeInUp;
+    }
+
+
+}
+
+@media (max-width: 768px) {}

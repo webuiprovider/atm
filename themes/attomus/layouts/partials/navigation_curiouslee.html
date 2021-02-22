@@ -1,0 +1,22 @@
+{{ $.Scratch.Set "semaforeul" "site-menu main-menu js-clone-nav mr-auto d-none d-lg-block" }}
+{{ $.Scratch.Set "semaforeli" "nav-link" }}
+{{ $.Scratch.Set "curiousul" "site-menu main-menu js-clone-nav mr-auto d-none d-lg-block" }}
+{{ $.Scratch.Set "curiousli" "nav-link" }}
+{{ if .Site.Menus.main }}
+    <div class="navbar-end">
+        {{ range sort .Site.Menus.main }}
+            {{ if .HasChildren }}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="{{ .URL }}">{{ .Name }}</a>
+                    <div class="navbar-dropdown">
+                        {{ range .Children }}
+                            <a href="{{ .URL }}" class="navbar-item is-secondary">{{ .Name }}</a>
+                        {{ end }}
+                    </div>
+                </div>
+            {{ else }}
+                <a href="{{ .URL }}" class="navbar-item is-secondary">{{ .Name }}</a>
+            {{ end }}
+        {{ end }}
+    </div>       
+{{ end }}

@@ -1,0 +1,126 @@
+{{ partial "header" . }}
+
+<main>
+    <div class="about-us">
+        <div class="about-us__header">
+            <div class="about-us__blur">
+
+                <h2>Attomus Clients</h2>
+                <p><a href="/">Attomus</a> / Attomus Clients</p>
+
+            </div>
+        </div>
+
+        <div class="about-us__content">
+            {{ .Content }}
+        </div>
+
+        <div class="about-us__clients">
+            <div class="attomus-clients">
+                <div>
+                    <a href="https://www.homeoffice.gov.uk">
+
+                        <img data-src="/img/home-office-logo-png-transparent-256x221.png"
+                            class="cld-responsive" alt="UK Home Office">
+                        <p>UK Home Office</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://fco.gov.uk">
+
+                        <img data-src="/img/Foreign-Commonwealth-Office-1-256x221.jpg"
+                            class="cld-responsive" alt="Foreign and Commonwealth Office">
+                        <p>Foreign & Commonwealth Office</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.boeing.com/defense/">
+
+                        <img data-src="/img/Boeing-Defence-256x221.jpg"
+                            class="cld-responsive" alt="Boeing Defence">
+                        <p>Boeing Defence</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.baesystems.com">
+
+                        <img data-src="/img/BAE-Systems-Logo.png"
+                             class="cld-responsive" alt="BAE Systems">
+                        <p>BAE Systems</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.met.police.uk">
+
+                        <img data-src="/img/Metropolitan-Police-1-256x221.jpg"
+                            class="cld-responsive" alt="Metropolitan Police">
+                        <p>Metropolitan Police</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://mod.gov.uk">
+
+                        <img data-src="/img/Ministry-of-Defence-256x221.jpg"
+                            class="cld-responsive" alt="UK Ministry of Defence">
+                        <p>Ministry of Defence</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://qinetiq.com">
+
+                        <img data-src="/img/qinetiq.svg"
+                            class="cld-responsive" alt="QinetiQ">
+                        <p>QinetiQ</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.bnpparibas.co.uk/en/">
+
+                        <img data-src="/img/q5uKr-3d_400x400-256x221.jpg"
+                            class="cld-responsive" alt="BNP Paribas bank">
+                        <p>BNP Paribas</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.parliament.uk/lords/">
+
+                        <img data-src="/img/X8-chCh2_400x400-256x221.jpg"
+                            class="cld-responsive" alt="UK House of Lords">
+                        <p>UK House of Lords</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.parliament.uk/business/commons/">
+
+                        <img data-src="/img/CUrjULQI_400x400-256x221.jpg"
+                            class="cld-responsive" alt="UK House of Commons">
+                        <p>UK House of Commons</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.6/min/tiny-slider.js"></script>
+    <script type="module">
+        // import {tns} from './src/tiny-slider.js';
+        
+        var slider = tns({
+            container: '.attomus-clients',
+            items: 5,
+            slideBy: 'page',
+            autoplay: true,
+            controls: false,
+            nav: false,
+            autoplayButtonOutput: false,
+            mouseDrag: true,
+            fixedWidth: 160,
+            gutter: 30
+        });
+    </script>
+
+</main>
+
+{{ partial "footer" . }}

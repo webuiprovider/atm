@@ -1,0 +1,41 @@
+{{ partial "header" . }}
+
+<main>
+
+    {{ $background := .Params.feat | printf "background-image: url(/img/%s);" }}
+    <div class="services__header" style="{{ $background | safeCSS }}">
+        <div class="services__blur">
+            <h2>{{ .Title }}</h2>
+            <p><a href="/blog">Blog</a> / {{ .Title }}</p>
+        </div>
+    </div>
+
+    <!-- <h2 class="default-title">{{ .Title }}</h2> -->
+    <div class="blog">
+        <div class="blog__content singleblog">
+            <div class="row">
+                <!-- if there's an introduction, put it in here indented and italics SA 21.5.20 -->
+                {{ if  .Params.introduction }}
+
+                    <p><i> {{ .Params.introduction }}</i></p>
+
+                {{ end }}
+                    <!-- Post content -->
+
+                    <!--<h1>{{ .Title }}</h1>   SA 13.10.19 updated to remove double heading -->
+                    {{ .Content }}
+
+                    <!-- /Post content -->
+                    {{ $.Scratch.Set "page_type" "single" }}
+                {{ partial "subscribe_list_page.html" . }}
+
+
+                <p>Fancy reading something else - what takes your fancy?</p>
+                    {{ partial "tags" . }}
+            </div>
+        </div>
+    </div>
+</main>
+
+{{ partial "footer.html" . }}
+

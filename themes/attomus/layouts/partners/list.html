@@ -1,0 +1,35 @@
+{{ partial "header" . }}
+
+<main>
+
+
+
+            {{$background:= "background-image: url(/img/corporate-investigations.jpg);" }}
+            <div class="services__header" style="{{ $background | safeCSS }}">
+                <div class="services__blur">
+            <h2>Partners</h2>
+            <p><a href="/partners">Attomus</a> / Partners</p>
+
+        </div>
+    </div>
+
+    {{ range .Pages }}
+    <div class="services__flat-row--{{ .Params.direction }}">
+        <div class="services__flat-row__content">
+            <h4>{{ .Title }}</h4>
+            <div>
+                {{ markdownify .Description }}
+            </div>
+            <a href="{{ .RelPermalink }}">Learn More</a>
+        </div>
+        <div class="services__flat-row__image">
+            <img data-src="/img/{{ .Params.feat }}"
+                class="cld-responsive" alt="Attomus Partners" style="min-width: 50%; min-height: 50%; height: 50%;">
+        </div>
+    </div>
+    {{ end }}
+
+</main>
+
+
+{{ partial "footer" . }}

@@ -1,0 +1,193 @@
+baseURL = ""
+languageCode = "en-us"
+title = "Cyber Security & Advanced Technology | Attomus"
+theme = "attomus"
+# SA 29.9.18 Added SEO elements
+enableRobotsTXT = true
+canonifyURLs = false
+paginate = 5
+#googleAnalytics = "UA-100087142-1"
+# summaryLength = 15
+
+# Enable code syntax highlighting
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+
+[params]
+    author = "Attomus"
+    # SA 29.9.18 updated site description
+    description = "Cyber Security & Advanced Technology | Attomus"
+    font = ""
+    email = "webmaster@attomus.com"
+
+    # Share buttons on blog post pages - TODO
+    #[params.share]
+    #    twitter                  = true
+    #    facebook                 = false
+    #    googlePlus               = true
+    #    pinterest                = true
+
+    [[params.social]]
+            url   = "https://twitter.com/attomushq"
+            icon  = "twitter" # icon name without the 'fa-'
+            icon_pack = "fab"
+        [[params.social]]
+            url   = "https://github.com/Attomus"
+            icon  = "github" # icon name without the 'fa-'
+            icon_pack = "fab"
+        [[params.social]]
+            url   = "https://linkedin.com/company/attomushq"
+            icon  = "linkedin-in" # icon name without the 'fa-'
+            icon_pack = "fab"
+        [[params.social]]
+            url = "mailto:semafore@attomus.com"  # For a direct email link, use "mailto:test@example.org".
+            icon = "paper-plane" # icon name without the 'fa-'
+            icon_pack = "fas"
+        [[params.social]]
+            url   = "/index.xml"
+            icon  = "rss" # icon name without the 'fa-'
+            icon_pack = "fas"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[[menu.main]]
+    url = "/"
+    name = "Home"
+    weight = 1
+
+[[menu.main]]
+    identifier = "services"
+    url = "/services/"
+    name = "Services"
+    weight = 2
+
+    [[menu.main]]
+        parent = "services"
+        name = "delivery"
+        url = "/services/delivery/"
+        weight = 10
+    [[menu.main]]
+        parent = "services"
+        name = "investigations"
+        url = "/services/investigations/"
+        weight = 20
+    [[menu.main]]
+        parent = "services"
+        name = "security"
+        url = "/services/security/"
+        weight = 30
+    [[menu.main]]
+        parent = "services"
+        name = "technology"
+        url = "/services/technology/"
+        weight = 40
+
+[[menu.main]]
+    identifier = "partners"
+    url = "/partners/"
+    name = "Partners"
+    weight = 3
+
+        [[menu.main]]
+            parent = "partners"
+            name = "Atlassian"
+            url = "/partners/atlassian/"
+            weight = 10
+        [[menu.main]]
+            parent = "partners"
+            name = "JetBrains"
+            url = "/partners/jetbrains/"
+            weight = 20
+        [[menu.main]]
+            parent = "partners"
+            name = "Netlify"
+            url = "/partners/netlify/"
+            weight = 30
+        [[menu.main]]
+            parent = "partners"
+            name = "XCP-ng"
+            url = "/partners/xcp-ng/"
+            weight = 40
+
+[[menu.main]]
+    identifier = "products"
+    url = "/products/"
+    name = "Products"
+    weight = 4
+
+    [[menu.main]]
+        parent = "products"
+        name = "Semafore"
+        url = "/products/semafore/"
+        weight = 10
+    [[menu.main]]
+        parent = "products"
+        name = "CuriousLee"
+        url = "/products/curiouslee/"
+        weight = 20
+
+[[menu.main]]
+    url = "/blog/"
+    name = "Blog"
+    weight = 5
+
+[[menu.main]]
+    identifier = "about-us"
+    url = "/about-us/"
+    name = "About us"
+    description = "Cyber Security & Advanced Technology | Attomus"
+    weight = 6
+
+    [[menu.main]]
+        parent = "about-us"
+        name = "Attomus Clients"
+        url = "/about-us/attomus-clients/"
+        weight = 10
+    [[menu.main]]
+        parent = "about-us"
+        url = "/contact-us/"
+        name = "Contact us"
+        weight = 20
+
+
+
+
+
+
+
+
+# Social icons to be shown on the footer
+
+# [[menu.icon]]
+#     url = "https://facebook.com/username"
+#     name = "facebook-logo.png"
+#     weight = 1
+
+[[menu.icon]]
+    url = "https://twitter.com/attomusHQ/"
+    name = "twitter-logo.png"
+    weight = 2
+
+# [[menu.icon]]
+#     url = "https://instagram.com/username/"
+#     name = "instagram.png"
+#     weight = 3
+
+# [[menu.icon]]
+#     url = "https://dribbble.com/username/"
+#     name = "dribbble-logo.png"
+#     weight = 4
+
+# [[menu.icon]]
+#     url = "https://googleplus.com/username/"
+#     name = "google-plus.png"
+#     weight = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
