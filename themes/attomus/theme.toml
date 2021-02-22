@@ -5,11 +5,11 @@ name = "Attomus"
 license = "MIT"
 licenselink = ""
 description = "Attomus Total Security - a cybersecurity company"
-homepage = "https://attomus.com"
+homepage = "/"
 tags = []
 features = []
 min_version = "0.41"
 
 [author]
   name = "Attomus"
-  homepage = "https://attomus.com"
+  homepage = "/"

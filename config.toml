@@ -19,7 +19,7 @@ pygmentsStyle = "monokai"
     # SA 29.9.18 updated site description
     description = "Cyber Security & Advanced Technology | Attomus"
     font = ""
-    email = "webmaster@attomus.com"
+    #email = "webmaster@attomus.com"
 
     # Share buttons on blog post pages - TODO
     #[params.share]
